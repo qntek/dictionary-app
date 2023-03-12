@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from 'react';
+import DictionaryContext from './context/DictionaryContext';
+import classNames from 'classnames';
+import TopBar from './components/TopBar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const { modeLight } = useContext(DictionaryContext);
+	const pageBody = document.querySelector('body');
+	if (modeLight) {
+		pageBody.classList.remove('body-dark');
+		pageBody.classList.add('body-light');
+	} else {
+		pageBody.classList.add('body-dark');
+		pageBody.classList.remove('body-light');
+	}
+	return (
+		<div>
+			<TopBar />
+		</div>
+	);
 }
 
 export default App;
