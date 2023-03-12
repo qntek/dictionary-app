@@ -1,23 +1,25 @@
 import { useContext, useEffect } from 'react';
 import DictionaryContext from './context/DictionaryContext';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import TopBar from './components/TopBar';
-
+import toggleColors from './utilities/toggleColors';
+import changeFont from './utilities/changeFont';
 function App() {
-	const { modeLight } = useContext(DictionaryContext);
+	const { modeLight, font } = useContext(DictionaryContext);
 	const pageBody = document.querySelector('body');
-	if (modeLight) {
-		pageBody.classList.remove('body-dark');
-		pageBody.classList.add('body-light');
-	} else {
-		pageBody.classList.add('body-dark');
-		pageBody.classList.remove('body-light');
-	}
+
+	useEffect(() => {
+		toggleColors(modeLight, pageBody);
+		changeFont(pageBody, font)
+	}, [modeLight, pageBody, font]);
+
 	return (
 		<div>
 			<TopBar />
+			
 		</div>
 	);
 }
+
 
 export default App;

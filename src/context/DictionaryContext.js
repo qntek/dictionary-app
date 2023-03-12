@@ -5,7 +5,7 @@ const DictionaryContext = createContext();
 function ContextProvider({ children }) {
 	const [word, setWord] = useState('Klawiatura');
   const [modeLight, setMode] = useState(true);
-  const [font, setFont] = useState('sansSerif')
+  const [font, setFont] = useState('Mono')
 	const valueToShare = {
 		word,
 		setWord,

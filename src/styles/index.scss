@@ -29,3 +29,64 @@ body {
 .img-moon {
   width: 2rem;
 }
+
+.pick-font-container {
+  position: relative;
+  cursor: pointer;
+}
+.pick-font-select {
+  position: absolute;
+  bottom: -13rem;
+  right: 0px;
+  padding: 1rem 4.5rem 1rem 2.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.200);
+  transform: scaleY(0); 
+}
+.menu-open {
+  transform-origin: top;
+  animation: open-menu 200ms ease-in forwards;
+}
+.menu-close {
+  transform-origin: top;
+  animation: close-menu 200ms ease-in forwards;
+}
+.shadow-light {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.200);
+}
+.shadow-dark {
+  box-shadow: 0 0 20px $mark_color;
+}
+.background-dark {
+  background-color: #1f1f1f;
+}
+
+.font-option {
+  font-weight: bold;
+  transition: color 300ms;
+}
+.font-option:hover,
+.font-option:focus {
+  color: $mark_color;
+}
+
+@keyframes open-menu {
+  0% {
+    opacity: 0;
+    transform: scaleY(0); 
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1); 
+  }
+}
+@keyframes close-menu {
+  0% {
+    opacity: 1;
+    transform: scaleY(1); 
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0); 
+  }
+}
