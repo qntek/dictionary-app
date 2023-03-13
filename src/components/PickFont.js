@@ -14,6 +14,7 @@ function PickFont() {
 
 	const pick = useRef();
 	const menu = useRef();
+	const arrowImg = useRef();
 	const one = useRef();
 
 	const handleClick = (name) => {
@@ -29,11 +30,14 @@ function PickFont() {
 		<div
 			ref={pick}
 			className='pick-font-container mt-3 fs-5'
-			onClick={() => toggleMenu(menu)}>
-			<p  className='font-option'>
+			onClick={() => {
+				toggleMenu(menu);
+				toggleMenu(arrowImg);
+			}}>
+			<p className='font-option fs-3'>
 				<span ref={one}>Mono</span>
 				<span>
-					<img className='ms-3' src={arrow} alt='' />
+					<img ref={arrowImg} className='ms-3' src={arrow} alt='' />
 				</span>
 			</p>
 			<div ref={menu} className={classes}>

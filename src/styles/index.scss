@@ -2,6 +2,7 @@
 @import "reset";
 @import "switch-btn";
 @import "colors";
+@import "animations";
 
 body {
   width: 100vw;
@@ -51,6 +52,12 @@ body {
   transform-origin: top;
   animation: close-menu 200ms ease-in forwards;
 }
+.arrow-opened {
+  animation: arrow-open 200ms ease-in forwards;
+}
+.arrow-closed {
+  animation: arrow-close 200ms ease-in forwards;
+}
 .shadow-light {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.200);
 }
@@ -70,23 +77,3 @@ body {
   color: $mark_color;
 }
 
-@keyframes open-menu {
-  0% {
-    opacity: 0;
-    transform: scaleY(0); 
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1); 
-  }
-}
-@keyframes close-menu {
-  0% {
-    opacity: 1;
-    transform: scaleY(1); 
-  }
-  100% {
-    opacity: 0;
-    transform: scaleY(0); 
-  }
-}
