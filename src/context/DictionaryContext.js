@@ -3,9 +3,9 @@ import { createContext, useState } from 'react';
 const DictionaryContext = createContext();
 
 function ContextProvider({ children }) {
-	const [word, setWord] = useState('Klawiatura');
+	const [word, setWord] = useState({});
   const [modeLight, setMode] = useState(true);
-  const [font, setFont] = useState('Mono')
+  const [font, setFont] = useState('Mono');
 	const valueToShare = {
 		word,
 		setWord,

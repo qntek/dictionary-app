@@ -4,10 +4,7 @@
 @import "colors";
 @import "animations";
 
-body {
-  width: 100vw;
-  min-height: 100vh;
-}
+
 .body-light {
   background-color: $background-light;
   color: $color-light;
@@ -19,6 +16,7 @@ body {
   transition: all 300ms;
 }
 .container-md {
+  padding: 0 20px;
   max-width: 768px;
 }
 
@@ -37,12 +35,14 @@ body {
 }
 .pick-font-select {
   position: absolute;
+  background-color: $background-light;
   bottom: -13rem;
   right: 0px;
   padding: 1rem 4.5rem 1rem 2.2rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.200);
   transform: scaleY(0); 
+  z-index: 100;
 }
 .menu-open {
   transform-origin: top;
@@ -66,6 +66,7 @@ body {
 }
 .background-dark {
   background-color: #1f1f1f;
+  
 }
 
 .font-option {
@@ -77,3 +78,30 @@ body {
   color: $mark_color;
 }
 
+// search bar
+.search-bar {
+  padding: 0 2rem;
+  width: 100%;
+  height: 5rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: border 200ms;
+}
+.search-bar:active,
+.search-bar:focus {
+  outline: none;
+  border: 1px solid $mark_color;
+}
+.search-bar-light {
+  background-color: $search-bar-light;
+  color: $color-light;
+}
+.search-bar-dark {
+  background-color: $search-bar-dark;
+  color: $color-dark;
+}
+.search-bar-error {
+  border: 1px solid red !important;
+}
