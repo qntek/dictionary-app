@@ -4,7 +4,7 @@ import axios from 'axios';
 import DictionaryContext from '../context/DictionaryContext';
 import iconSearch from '../assets/images/icon-search.svg';
 
-function SearchBar() {
+function SearchBar({ setFetchState }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [term, setTerm] = useState('');
 	const { modeLight, setWord } = useContext(DictionaryContext);
@@ -27,19 +27,30 @@ function SearchBar() {
 
 	const search = async (e) => {
 		e.preventDefault();
+		const lookedTerm = `https://api.dictionaryapi.dev/api/v2/entries/en/${term.toLowerCase()}`;
+
 		if (!term) {
 			handleEmptyBar();
 			return;
 		}
+
 		setIsLoading(true);
-		const lookedTerm = `https://api.dictionaryapi.dev/api/v2/entries/en/${term.toLowerCase()}`;
-		const answer = await axios.get(lookedTerm).catch((err) => {
-			console.log('Failed to fetch: ' + err);
+		let answer = null;
+		try {
+			answer = await axios.get(lookedTerm);
+		} catch (err) {
+			answer = err.response;
+			console.log(answer.data.title);
+			setFetchState(true);
+		} finally {
 			setIsLoading(false);
-		});
-		setIsLoading(false);
-		if (answer && answer.status === 200)
-			setWord(JSON.parse(answer.request.response)[0]);
+		}
+		console.log(answer);
+		if (answer && answer.status === 200) setFetchState(false);
+		setWord(JSON.parse(answer.request.response)[0]);
+		if (answer && answer.status >= 400) {
+			setFetchState(true);
+		}
 	};
 
 	return (
