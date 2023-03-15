@@ -34,7 +34,7 @@ function PickFont() {
 				toggleMenu(menu);
 				toggleMenu(arrowImg);
 			}}>
-			<p className='font-option fs-3'>
+			<p className='font-option fs-2'>
 				<span ref={one}>Mono</span>
 				<span>
 					<img ref={arrowImg} className='ms-3' src={arrow} alt='' />
@@ -42,17 +42,17 @@ function PickFont() {
 			</p>
 			<div ref={menu} className={classes}>
 				<p
-					className='fs-4 font-option font-mono'
+					className='fs-3 font-option font-mono'
 					onClick={() => handleClick('Mono')}>
 					{options[0].label}
 				</p>
 				<p
-					className='fs-4 font-option font-serif'
+					className='fs-3 font-option font-serif'
 					onClick={() => handleClick('Serif')}>
 					{options[1].label}
 				</p>
 				<p
-					className='fs-4 font-option font-sans-serif'
+					className='fs-3 font-option font-sans-serif'
 					onClick={() => handleClick('SansSerif')}>
 					{options[2].label}
 				</p>

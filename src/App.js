@@ -4,13 +4,13 @@ import DictionaryContext from './context/DictionaryContext';
 import TopBar from './components/TopBar';
 import SearchBar from './components/SearchBar';
 import ErrorMsg from './components/ErrorMsg';
-import Header from './components/Header';
+import Definition from './components/Definition';
 import toggleColors from './utilities/toggleColors';
 import changeFont from './utilities/changeFont';
 
 function App() {
 	const [fetchFailed, setFetchState] = useState(false); // true if axios get, failed
-	const { modeLight, font } = useContext(DictionaryContext);
+	const { modeLight, font, word } = useContext(DictionaryContext);
 	const pageBody = document.querySelector('body');
 
 	useEffect(() => {
@@ -23,7 +23,7 @@ function App() {
 			<TopBar />
 			<SearchBar setFetchState={setFetchState}/>
 			{fetchFailed && <ErrorMsg/>}
-			{!fetchFailed && <Header/>}
+			{(!fetchFailed && Object.keys(word).length !== 0) && <Definition/>}
 
 		</div>
 	);

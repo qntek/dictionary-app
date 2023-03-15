@@ -40,14 +40,13 @@ function SearchBar({ setFetchState }) {
 			answer = await axios.get(lookedTerm);
 		} catch (err) {
 			answer = err.response;
-			console.log(answer.data.title);
 			setFetchState(true);
 		} finally {
 			setIsLoading(false);
 		}
-		console.log(answer);
+		
 		if (answer && answer.status === 200) setFetchState(false);
-		setWord(JSON.parse(answer.request.response)[0]);
+		setWord(JSON.parse(answer.request?.response)[0]);
 		if (answer && answer.status >= 400) {
 			setFetchState(true);
 		}
@@ -66,6 +65,7 @@ function SearchBar({ setFetchState }) {
 					className={classes}
 					id='searchInput'
 					placeholder='Search...'
+					autoComplete="off"
 					onChange={() => setTerm(form.current.value)}
 				/>
 				<div

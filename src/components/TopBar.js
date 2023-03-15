@@ -10,9 +10,10 @@ function TopBar() {
 	const handleModeChange = () => {
 		setMode(!modeLight);
 	};
-
+	let moonIconClasses
+	modeLight ? moonIconClasses='img-moon ms-4' : moonIconClasses='img-moon ms-4 text-mark-color'
 	return (
-		<div className='d-flex justify-content-between my-5 pt-5'>
+		<div className='d-flex justify-content-between my-4 pt-2'>
 			<div>
 				<img src={logo} alt='' className='img-logo' />
 			</div>
@@ -32,7 +33,7 @@ function TopBar() {
 						Checked switch checkbox input
 					</label>
 				</div>
-				<img src={moonIcon} alt='' className='img-moon ms-4' />
+				<img src={moonIcon} alt='' className={moonIconClasses}/>
 			</div>
 		</div>
 	);

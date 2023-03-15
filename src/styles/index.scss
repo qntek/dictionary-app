@@ -1,128 +1,169 @@
-@import "fonts";
-@import "reset";
-@import "switch-btn";
-@import "colors";
-@import "animations";
-
+@import 'fonts';
+@import 'reset';
+@import 'switch-btn';
+@import 'colors';
+@import 'animations';
 
 .body-light {
-  background-color: $background-light;
-  color: $color-light;
-  transition: all 300ms;
+	background-color: $background-light;
+	color: $color-light;
+	transition: all 300ms;
 }
 .body-dark {
-  background-color: $background-dark;
+	background-color: $background-dark;
+	color: $color-dark;
+	transition: all 300ms;
+}
+.text-mode-dark {
   color: $color-dark;
-  transition: all 300ms;
+}
+.text-mode-light {
+  color: $color-light;
+}
+.text-mark-color {
+  color: $mark_color !important;
 }
 .container-md {
-  padding: 0 20px;
-  max-width: 768px;
+	padding: 0 20px;
+	max-width: 768px;
 }
 
 // top bar - switch mode and fonts
 
 .img-logo {
-  width: 2.5rem;
+	width: 2.5rem;
 }
 .img-moon {
-  width: 2rem;
+	width: 2.2rem;
 }
 
 .pick-font-container {
-  position: relative;
-  cursor: pointer;
+	position: relative;
+	cursor: pointer;
 }
 .pick-font-select {
-  position: absolute;
-  background-color: $background-light;
-  bottom: -13rem;
-  right: 0px;
-  padding: 1rem 4.5rem 1rem 2.2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.200);
-  transform: scaleY(0); 
-  z-index: 100;
+	position: absolute;
+	background-color: $background-light;
+	bottom: -13rem;
+	right: 0px;
+	padding: 1rem 4.5rem 1rem 2.2rem;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transform: scaleY(0);
+	z-index: 100;
 }
 .menu-open {
-  transform-origin: top;
-  animation: open-menu 200ms ease-in forwards;
+	transform-origin: top;
+	animation: open-menu 200ms ease-in forwards;
 }
 .menu-close {
-  transform-origin: top;
-  animation: close-menu 200ms ease-in forwards;
+	transform-origin: top;
+	animation: close-menu 200ms ease-in forwards;
 }
 .arrow-opened {
-  animation: arrow-open 200ms ease-in forwards;
+	animation: arrow-open 200ms ease-in forwards;
 }
 .arrow-closed {
-  animation: arrow-close 200ms ease-in forwards;
+	animation: arrow-close 200ms ease-in forwards;
 }
 .shadow-light {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.200);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .shadow-dark {
-  box-shadow: 0 0 20px $mark_color;
+	box-shadow: 0 0 20px $mark_color;
 }
 .background-dark {
-  background-color: #1f1f1f;
-  
+	background-color: #1f1f1f;
 }
 
 .font-option {
-  font-weight: bold;
-  transition: color 300ms;
+	font-weight: bold;
+	transition: color 300ms;
 }
 .font-option:hover,
 .font-option:focus {
-  color: $mark_color;
+	color: $mark_color;
 }
 
 // search bar
 .search-bar {
-  padding: 0 2rem;
-  width: 100%;
-  height: 5rem;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  font-size: 2rem;
-  font-weight: bold;
-  transition: border 200ms;
+	padding: 0 2rem;
+	width: 100%;
+	height: 5.5rem;
+	border: 1px solid transparent;
+	border-radius: 15px;
+	font-size: 2rem;
+	font-weight: bold;
+	transition: border 200ms;
 }
 .search-bar:active,
 .search-bar:focus {
-  outline: none;
-  border: 1px solid $mark_color;
+	outline: none;
+	border: 1px solid $mark_color;
 }
-.search-bar-light {
-  background-color: $search-bar-light;
-  color: $color-light;
+.search-bar-light,
+.search-bar-light:active,
+.search-bar-light:focus {
+	background-color: $search-bar-light;
+	color: $color-light;
 }
-.search-bar-dark {
-  background-color: $search-bar-dark;
-  color: $color-dark;
+.search-bar-dark,
+.search-bar-dark:active,
+.search-bar-dark:focus {
+	background-color: $search-bar-dark;
+	color: $color-dark;
 }
 .search-bar-error {
-  border: 1px solid red !important;
+	border: 1px solid red !important;
 }
 
 // response header
 
 .response-play-btn {
-  appearance: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  img {
-    width: 60px;
-  }
+	appearance: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	img {
+		width: 60px;
+	}
 }
 
 .response-title {
-  font-weight: bold;
-  font-size: 6rem;
+	font-weight: bold;
+	font-size: 6rem;
 }
 .response-phonetic {
-  font-size: 2.5rem;
+	font-size: 2.5rem;
+	color: $mark_color;
+}
+
+// response meaning
+
+.response-meaning-speech-part {
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	
+	font-weight: bold;
+}
+.box-50 {
+	height: 50%;
+	border-bottom: 1px solid $breaking-line;
+	margin-left: 1rem;
+}
+.response-meaning-title {
+	margin-top: 1rem;
+	
+	color: $text-lighter;
+}
+.response-meaning-ul {
+  margin-left: 0.8rem;
   color: $mark_color;
+  list-style-position:outside;
+
+}
+.response-meaning-example-text {
+  margin-top: 1rem;
+  color: $text-lighter;
 }

@@ -27,7 +27,7 @@ function Header() {
 	};
 
 	return (
-		<div className='d-flex justify-content-between align-items-center mt-2 pt-5'>
+		<div className='d-flex justify-content-between align-items-center mt-2 pt-3'>
 			<div className='flex-column justify-items-start'>
 				<p className='response-title lh-1'>{title}</p>
 				<p className='response-phonetic lh-1'>{phonetic}</p>
