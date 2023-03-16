@@ -22,7 +22,7 @@ function SingleDefinition({ meaning, modeLight }) {
 						{meaning.partOfSpeech}
 					</p>
 				</div>
-				<div className='flex-column container'>
+				<div className='flex-column container pe-0'>
 					<div className='box-50'></div>
 				</div>
 			</div>
@@ -31,7 +31,7 @@ function SingleDefinition({ meaning, modeLight }) {
 			{synonyms ? (
 				<div className='d-flex mb-4'>
 					<div className='response-meaning-title fs-2'>Synonyms</div>
-					<div className='response-meaning-title text-mark-color fw-bold ms-4 fs-2'>
+					<div className='synonyms response-meaning-title text-mark-color fw-bold ms-4 fs-2'>
 						{synonyms}
 					</div>
 				</div>

@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from 'react';
+import { useContext, useState, useRef, useEffect } from 'react';
 import { ClipLoader } from 'react-spinners';
 import axios from 'axios';
 import DictionaryContext from '../context/DictionaryContext';
@@ -6,11 +6,15 @@ import iconSearch from '../assets/images/icon-search.svg';
 
 function SearchBar({ setFetchState }) {
 	const [isLoading, setIsLoading] = useState(false);
-	const [term, setTerm] = useState('');
+	const [term, setTerm] = useState('keyboard');
 	const { modeLight, setWord } = useContext(DictionaryContext);
 	const form = useRef();
 	const errMsg = useRef();
 	let classes;
+
+	useEffect(() => {
+		search();
+	}, [])
 
 	modeLight
 		? (classes = 'search-bar search-bar-light')
@@ -25,8 +29,9 @@ function SearchBar({ setFetchState }) {
 		}, 2000);
 	};
 
-	const search = async (e) => {
-		e.preventDefault();
+
+	async function search(e) {
+		if (e) e.preventDefault();
 		const lookedTerm = `https://api.dictionaryapi.dev/api/v2/entries/en/${term.toLowerCase()}`;
 
 		if (!term) {
