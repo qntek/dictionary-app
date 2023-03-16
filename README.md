@@ -22,7 +22,10 @@ A simple but stylish dictionary web app built with React, Bootstrap and REST API
 
 ## Screenshots
 
-XXX
+![screenshot1]("./src/assets/screenshot/1.jpg")
+![screenshot2]("./src/assets/screenshot/2.jpg")
+![screenshot3]("./src/assets/screenshot/3.jpg")
+![screenshot4]("./src/assets/screenshot/4.jpg")
 
 ## 🗝️ Features
 
