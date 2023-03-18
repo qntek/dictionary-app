@@ -27,7 +27,9 @@
 	padding: 0 20px;
 	max-width: 768px;
 }
-
+.cursor-pointer {
+	cursor: pointer;
+}
 // top bar - switch mode and fonts
 
 .img-logo {
@@ -154,7 +156,7 @@
 }
 .response-meaning-title {
 	margin-top: 1rem;
-	
+	flex-wrap: wrap;
 	color: $text-lighter;
 }
 .response-meaning-ul {

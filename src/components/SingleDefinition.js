@@ -1,4 +1,8 @@
+import { useContext } from 'react';
+import DictionaryContext from '../context/DictionaryContext';
+
 function SingleDefinition({ meaning, modeLight }) {
+	const { term, setTerm } = useContext(DictionaryContext); // used to update value of searched term, when synonym is clicked.
 	const definitions = meaning.definitions.map((definition) => {
 		return (
 			<div key={definition.definition}>
@@ -13,7 +17,22 @@ function SingleDefinition({ meaning, modeLight }) {
 			</div>
 		);
 	});
-	const synonyms = meaning.synonyms.join(`  `);
+
+	const synonyms = meaning.synonyms.map((synonym) => {
+		return (
+			<p key={synonym} className='cursor-pointer d-inline me-4'>
+				{synonym}
+			</p>
+		);
+	});
+
+	function showSynonymsDef(e) {
+		const icon = document.querySelector('#search-icon');
+		window.scrollTo(0, 0);
+		setTerm(e.target.innerText);
+		setTimeout(() => icon.click(), 150);
+	}
+
 	return (
 		<div className='container px-0 mt-3'>
 			<div className='d-flex mt-3'>
@@ -31,7 +50,9 @@ function SingleDefinition({ meaning, modeLight }) {
 			{synonyms ? (
 				<div className='d-flex mb-4'>
 					<div className='response-meaning-title fs-2'>Synonyms</div>
-					<div className='synonyms response-meaning-title text-mark-color fw-bold ms-4 fs-2'>
+					<div
+						className='d-flex synonyms response-meaning-title text-mark-color fw-bold ms-4 fs-2'
+						onClick={(e) => showSynonymsDef(e)}>
 						{synonyms}
 					</div>
 				</div>

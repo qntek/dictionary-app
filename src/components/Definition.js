@@ -4,6 +4,7 @@ import Header from './Header';
 import SingleDefinition from './SingleDefinition';
 import iconNewWindow from '../assets/images/icon-new-window.svg';
 
+
 function Definition() {
 	const { modeLight, word } = useContext(DictionaryContext);
 

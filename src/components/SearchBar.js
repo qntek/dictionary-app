@@ -6,15 +6,15 @@ import iconSearch from '../assets/images/icon-search.svg';
 
 function SearchBar({ setFetchState }) {
 	const [isLoading, setIsLoading] = useState(false);
-	const [term, setTerm] = useState('keyboard');
-	const { modeLight, setWord } = useContext(DictionaryContext);
+
+	const { modeLight, setWord, term, setTerm } = useContext(DictionaryContext);
 	const form = useRef();
 	const errMsg = useRef();
 	let classes;
 
 	useEffect(() => {
 		search();
-	}, [])
+	}, []);
 
 	modeLight
 		? (classes = 'search-bar search-bar-light')
@@ -28,7 +28,6 @@ function SearchBar({ setFetchState }) {
 			form.current.classList.remove('search-bar-error');
 		}, 2000);
 	};
-
 
 	async function search(e) {
 		if (e) e.preventDefault();
@@ -49,13 +48,13 @@ function SearchBar({ setFetchState }) {
 		} finally {
 			setIsLoading(false);
 		}
-		
+
 		if (answer && answer.status === 200) setFetchState(false);
 		setWord(JSON.parse(answer.request?.response)[0]);
 		if (answer && answer.status >= 400) {
 			setFetchState(true);
 		}
-	};
+	}
 
 	return (
 		<div className='position-relative'>
@@ -70,7 +69,7 @@ function SearchBar({ setFetchState }) {
 					className={classes}
 					id='searchInput'
 					placeholder='Search...'
-					autoComplete="off"
+					autoComplete='off'
 					onChange={() => setTerm(form.current.value)}
 				/>
 				<div
@@ -87,7 +86,7 @@ function SearchBar({ setFetchState }) {
 							className='spinner'
 						/>
 					) : (
-						<img src={iconSearch} alt='' onClick={search} />
+						<img id='search-icon' src={iconSearch} alt='' onClick={search} />
 					)}
 				</div>
 			</form>
