@@ -15,13 +15,13 @@
 	transition: all 300ms;
 }
 .text-mode-dark {
-  color: $color-dark;
+	color: $color-dark;
 }
 .text-mode-light {
-  color: $color-light;
+	color: $color-light;
 }
 .text-mark-color {
-  color: $mark_color !important;
+	color: $mark_color !important;
 }
 .container-md {
 	padding: 0 20px;
@@ -118,7 +118,9 @@
 .search-bar-error {
 	border: 1px solid red !important;
 }
-
+.error-box {
+	height: 70vh;
+}
 // response header
 
 .response-play-btn {
@@ -126,11 +128,14 @@
 	background: none;
 	border: none;
 	cursor: pointer;
+	transition: transform 300ms;
 	img {
 		width: 60px;
 	}
 }
-
+.response-play-btn:active {
+	transform: scale(0.8);
+}
 .response-title {
 	font-weight: bold;
 	font-size: 6rem;
@@ -146,7 +151,7 @@
 	display: inline-block;
 	width: 100%;
 	position: relative;
-	
+
 	font-weight: bold;
 }
 .box-50 {
@@ -160,14 +165,13 @@
 	color: $text-lighter;
 }
 .response-meaning-ul {
-  margin-left: 0.8rem;
-  color: $mark_color;
-  list-style-position:outside;
-
+	margin-left: 0.8rem;
+	color: $mark_color;
+	list-style-position: outside;
 }
 .response-meaning-example-text {
-  margin-top: 1rem;
-  color: $text-lighter;
+	margin-top: 1rem;
+	color: $text-lighter;
 }
 .synonyms {
 	word-spacing: 4px;
@@ -177,4 +181,15 @@
 }
 .text-underline-offset {
 	text-underline-offset: 4px;
+}
+
+// suspended view
+
+.suspended-view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 70vh;
+	font-weight: bold;
 }

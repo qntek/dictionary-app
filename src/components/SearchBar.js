@@ -1,12 +1,10 @@
-import { useContext, useState, useRef, useEffect } from 'react';
+import { useContext,  useRef, useEffect } from 'react';
 import { ClipLoader } from 'react-spinners';
 import axios from 'axios';
 import DictionaryContext from '../context/DictionaryContext';
 import iconSearch from '../assets/images/icon-search.svg';
 
-function SearchBar({ setFetchState }) {
-	const [isLoading, setIsLoading] = useState(false);
-
+function SearchBar({ setFetchState, setIsLoading, isLoading }) {
 	const { modeLight, setWord, term, setTerm } = useContext(DictionaryContext);
 	const form = useRef();
 	const errMsg = useRef();
