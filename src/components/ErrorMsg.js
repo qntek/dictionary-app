@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import DictionaryContext from '../context/DictionaryContext';
+import Context from '../hooks/contextHook';
 
 function ErrorMsg() {
-	const { modeLight } = useContext(DictionaryContext);
+	const { modeLight } = Context();
 	return (
 		<div className='container d-flex flex-column error-box justify-content-center align-items-center'>
 			<svg

@@ -1,12 +1,10 @@
-import { useContext } from 'react';
-import DictionaryContext from '../context/DictionaryContext';
+import Context from '../hooks/contextHook';
 import PickFont from './PickFont';
 import logo from '../assets/images/logo.svg';
 import moonIcon from '../assets/images/icon-moon.svg';
 
 function TopBar() {
-	const { modeLight, setMode } = useContext(DictionaryContext);
-
+	const { modeLight, setMode } = Context();
 	const handleModeChange = () => {
 		setMode(!modeLight);
 	};

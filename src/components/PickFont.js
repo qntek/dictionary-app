@@ -1,11 +1,10 @@
-import { useContext, useRef } from 'react';
-
-import DictionaryContext from '../context/DictionaryContext';
+import { useRef } from 'react';
+import Context from '../hooks/contextHook';
 import toggleMenu from '../utilities/toggleMenu';
 import arrow from '../assets/images/icon-arrow-down.svg';
 
 function PickFont() {
-	const { modeLight, setFont } = useContext(DictionaryContext);
+	const { modeLight, setFont } = Context();
 	const options = [
 		{ value: 'Mono', label: 'Mono' },
 		{ value: 'Serif', label: 'Serif' },

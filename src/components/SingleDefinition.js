@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import DictionaryContext from '../context/DictionaryContext';
+import Context from '../hooks/contextHook';
 
 function SingleDefinition({ meaning, modeLight }) {
-	const { setTerm } = useContext(DictionaryContext); // used to update value of searched term, when synonym is clicked.
+	const { setTerm } = Context(); // used to update value of searched term, when synonym is clicked.
 	const definitions = meaning.definitions.map((definition) => {
 		return (
 			<div key={definition.definition}>

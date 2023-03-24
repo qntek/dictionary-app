@@ -1,12 +1,11 @@
-import { useContext } from 'react';
-import DictionaryContext from '../context/DictionaryContext';
+import Context from '../hooks/contextHook';
 import Header from './Header';
 import SingleDefinition from './SingleDefinition';
 import iconNewWindow from '../assets/images/icon-new-window.svg';
 
 
 function Definition() {
-	const { modeLight, word } = useContext(DictionaryContext);
+	const { modeLight, word } = Context();
 
 	const definitions = word.meanings.map((meaning) => {
 		return (

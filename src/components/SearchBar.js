@@ -1,11 +1,11 @@
-import { useContext,  useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { ClipLoader } from 'react-spinners';
 import axios from 'axios';
-import DictionaryContext from '../context/DictionaryContext';
+import Context from '../hooks/contextHook';
 import iconSearch from '../assets/images/icon-search.svg';
 
 function SearchBar({ setFetchState, setIsLoading, isLoading }) {
-	const { modeLight, setWord, term, setTerm } = useContext(DictionaryContext);
+	const { modeLight, setWord, term, setTerm } = Context();
 	const form = useRef();
 	const errMsg = useRef();
 	let classes;
@@ -53,7 +53,7 @@ function SearchBar({ setFetchState, setIsLoading, isLoading }) {
 			setFetchState(true);
 		}
 	}
-
+	
 	return (
 		<div className='position-relative'>
 			<form onSubmit={(e) => search(e)}>

@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-
-import DictionaryContext from './context/DictionaryContext';
+import { useEffect, useState } from 'react';
+import Context from './hooks/contextHook';
 import TopBar from './components/TopBar';
 import SearchBar from './components/SearchBar';
 import ErrorMsg from './components/ErrorMsg';
@@ -12,7 +11,7 @@ import Loading from './components/Loading';
 function App() {
 	const [fetchFailed, setFetchState] = useState(false); // true if axios get, failed
 	const [isLoading, setIsLoading] = useState(false); // true if loading
-	const { modeLight, font, word } = useContext(DictionaryContext);
+	const { modeLight, font, word } = Context();
 	const pageBody = document.querySelector('body');
 
 	useEffect(() => {
@@ -23,10 +22,16 @@ function App() {
 	return (
 		<div>
 			<TopBar />
-			<SearchBar setFetchState={setFetchState} setIsLoading={setIsLoading} isLoading={isLoading}/>
+			<SearchBar
+				setFetchState={setFetchState}
+				setIsLoading={setIsLoading}
+				isLoading={isLoading}
+			/>
 			{isLoading && <Loading />}
 			{fetchFailed && <ErrorMsg />}
-			{!fetchFailed && !isLoading && Object.keys(word).length !== 0 && <Definition />}
+			{!fetchFailed && !isLoading && Object.keys(word).length !== 0 && (
+				<Definition />
+			)}
 		</div>
 	);
 }

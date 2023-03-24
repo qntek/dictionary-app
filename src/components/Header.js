@@ -1,10 +1,8 @@
-import { useContext } from 'react';
-import DictionaryContext from '../context/DictionaryContext';
-
+import Context from '../hooks/contextHook';
 import iconPlay from '../assets/images/icon-play.svg';
 
 function Header() {
-	const { word } = useContext(DictionaryContext);
+	const { word } = Context();
 
 	const title = word.word;
 	const phonetic = word.phonetic;
