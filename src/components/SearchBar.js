@@ -47,10 +47,12 @@ function SearchBar({ setFetchState, setIsLoading, isLoading }) {
 			setIsLoading(false);
 		}
 
-		if (answer && answer.status === 200) setFetchState(false);
-		const newWord = JSON.parse(answer.request?.response)[0];
-		setWord(newWord);
-		window.history.pushState({ state: newWord }, '');
+		if (answer && answer.status === 200) {
+			setFetchState(false);
+			const newWord = JSON.parse(answer.request?.response)[0];
+			setWord(newWord);
+			window.history.pushState({ state: newWord }, '');
+		}
 		if (answer && answer.status >= 400) {
 			setFetchState(true);
 		}
