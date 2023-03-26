@@ -16,9 +16,11 @@ function App() {
 
 	useEffect(() => {
 		const eventHandler = (e) => {
-			setWord(window.history.state.state)
-			setTerm(window.history.state.state.word)
-		}
+			if (window.history.state) {
+				setWord(window.history.state.state);
+				setTerm(window.history.state.state.word);
+			}
+		};
 		toggleColors(modeLight, pageBody);
 		changeFont(pageBody, font);
 		window.addEventListener('popstate', eventHandler);
