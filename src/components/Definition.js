@@ -7,7 +7,7 @@ import iconNewWindow from '../assets/images/icon-new-window.svg';
 function Definition() {
 	const { modeLight, word } = Context();
 
-	const definitions = word.meanings.map((meaning) => {
+	const definitions = word.meanings.map((meaning, index) => {
 		return (
 			<SingleDefinition
 				key={meaning.definitions[0].definition}

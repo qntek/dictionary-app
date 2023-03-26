@@ -48,12 +48,14 @@ function SearchBar({ setFetchState, setIsLoading, isLoading }) {
 		}
 
 		if (answer && answer.status === 200) setFetchState(false);
-		setWord(JSON.parse(answer.request?.response)[0]);
+		const newWord = JSON.parse(answer.request?.response)[0];
+		setWord(newWord);
+		window.history.pushState({ state: newWord }, '');
 		if (answer && answer.status >= 400) {
 			setFetchState(true);
 		}
 	}
-	
+
 	return (
 		<div className='position-relative'>
 			<form onSubmit={(e) => search(e)}>

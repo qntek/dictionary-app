@@ -4,20 +4,26 @@ import TopBar from './components/TopBar';
 import SearchBar from './components/SearchBar';
 import ErrorMsg from './components/ErrorMsg';
 import Definition from './components/Definition';
+import Loading from './components/Loading';
 import toggleColors from './utilities/toggleColors';
 import changeFont from './utilities/changeFont';
-import Loading from './components/Loading';
 
 function App() {
 	const [fetchFailed, setFetchState] = useState(false); // true if axios get, failed
 	const [isLoading, setIsLoading] = useState(false); // true if loading
-	const { modeLight, font, word } = Context();
+	const { modeLight, font, word, setWord, setTerm } = Context();
 	const pageBody = document.querySelector('body');
 
 	useEffect(() => {
+		const eventHandler = (e) => {
+			setWord(window.history.state.state)
+			setTerm(window.history.state.state.word)
+		}
 		toggleColors(modeLight, pageBody);
 		changeFont(pageBody, font);
-	}, [modeLight, pageBody, font]);
+		window.addEventListener('popstate', eventHandler);
+		return () => window.removeEventListener('popstate', eventHandler);
+	}, [modeLight, pageBody, font, setWord, setTerm]);
 
 	return (
 		<div>
